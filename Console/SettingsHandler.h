@@ -428,7 +428,7 @@ struct HotKeys : public SettingsBase
 	struct commandID{};
 
 	typedef multi_index_container<
-				shared_ptr<CommandData>,
+				tr1::shared_ptr<CommandData>,
 				indexed_by
 				<
 					sequenced<>,
@@ -539,7 +539,7 @@ struct MouseSettings : public SettingsBase
 	struct commandName{};
 
 	typedef multi_index_container<
-				shared_ptr<CommandData>,
+				tr1::shared_ptr<CommandData>,
 				indexed_by
 				<
 					sequenced<>,
@@ -620,7 +620,7 @@ struct TabData
 
 //////////////////////////////////////////////////////////////////////////////
 
-typedef vector<shared_ptr<TabData> >	TabDataVector;
+typedef vector<tr1::shared_ptr<TabData> >	TabDataVector;
 
 struct TabSettings : public SettingsBase
 {

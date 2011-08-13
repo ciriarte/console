@@ -43,7 +43,7 @@ wstring Helpers::ExpandEnvironmentStrings(const wstring& str)
 
 //////////////////////////////////////////////////////////////////////////////
 
-wstring Helpers::ExpandEnvironmentStringsForUser(const shared_ptr<void>& userToken, const wstring& str)
+wstring Helpers::ExpandEnvironmentStringsForUser(const tr1::shared_ptr<void>& userToken, const wstring& str)
 {
 	shared_array<wchar_t> szExpanded(new wchar_t[MAX_PATH]);
 

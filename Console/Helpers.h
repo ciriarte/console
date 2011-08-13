@@ -17,7 +17,7 @@ class Helpers
 		static wstring GetModulePath(HINSTANCE hInstance);
 
 		static wstring ExpandEnvironmentStrings(const wstring& str);
-		static wstring ExpandEnvironmentStringsForUser(const shared_ptr<void>& userToken, const wstring& str);
+		static wstring ExpandEnvironmentStringsForUser(const tr1::shared_ptr<void>& userToken, const wstring& str);
 
 		static void GetMonitorRect(HWND hWnd, CRect& rectMonitor);
 		static void GetDesktopRect(HWND hWnd, CRect& rectDesktop);
@@ -114,7 +114,7 @@ class Mutex
 
 	private:
 
-		shared_ptr<void>	m_mutex;
+		tr1::shared_ptr<void>	m_mutex;
 };
 
 //////////////////////////////////////////////////////////////////////////////

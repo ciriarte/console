@@ -120,7 +120,7 @@ struct BackgroundImage
 
 	bool				bWallpaper;
 
-	shared_ptr<fipImage> originalImage;
+	tr1::shared_ptr<fipImage> originalImage;
 
 	CBitmap				image;
 	CDC					dcImage;
@@ -130,19 +130,19 @@ struct BackgroundImage
 
 struct MonitorEnumData
 {
-	MonitorEnumData(CDC& dcTempl, shared_ptr<BackgroundImage>& img)
+	MonitorEnumData(CDC& dcTempl, tr1::shared_ptr<BackgroundImage>& img)
 	: bkImage(img)
 	, dcTemplate(dcTempl)
 	{
 	}
 
-	shared_ptr<BackgroundImage>&	bkImage;
+	tr1::shared_ptr<BackgroundImage>&	bkImage;
 	CDC&							dcTemplate;
 };
 
 //////////////////////////////////////////////////////////////////////////////
 
-typedef vector<shared_ptr<BackgroundImage> >	Images;
+typedef vector<tr1::shared_ptr<BackgroundImage> >	Images;
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -160,24 +160,24 @@ class ImageHandler
 
 	public:
 
-		shared_ptr<BackgroundImage> GetImage(const ImageData& imageData);
-		shared_ptr<BackgroundImage> GetDesktopImage(ImageData& imageData);
+		tr1::shared_ptr<BackgroundImage> GetImage(const ImageData& imageData);
+		tr1::shared_ptr<BackgroundImage> GetDesktopImage(ImageData& imageData);
 		void ReloadDesktopImages();
 
-		void UpdateImageBitmap(const CDC& dc, const CRect& clientRect, shared_ptr<BackgroundImage>& bkImage);
+		void UpdateImageBitmap(const CDC& dc, const CRect& clientRect, tr1::shared_ptr<BackgroundImage>& bkImage);
 
 	private:
 
 		bool GetDesktopImageData(ImageData& imageData);
-		bool LoadImage(shared_ptr<BackgroundImage>& bkImage);
+		bool LoadImage(tr1::shared_ptr<BackgroundImage>& bkImage);
 
-		void CreateRelativeImage(const CDC& dc, shared_ptr<BackgroundImage>& bkImage);
-		void CreateImage(const CDC& dc, const CRect& clientRect, shared_ptr<BackgroundImage>& bkImage);
+		void CreateRelativeImage(const CDC& dc, tr1::shared_ptr<BackgroundImage>& bkImage);
+		void CreateImage(const CDC& dc, const CRect& clientRect, tr1::shared_ptr<BackgroundImage>& bkImage);
 
-		static void PaintTemplateImage(const CDC& dcTemplate, int nOffsetX, int nOffsetY, DWORD dwSrcWidth, DWORD dwSrcHeight, DWORD dwDstWidth, DWORD dwDstHeight, shared_ptr<BackgroundImage>& bkImage);
-		static void TileTemplateImage(const CDC& dcTemplate, int nOffsetX, int nOffsetY, shared_ptr<BackgroundImage>& bkImage);
+		static void PaintTemplateImage(const CDC& dcTemplate, int nOffsetX, int nOffsetY, DWORD dwSrcWidth, DWORD dwSrcHeight, DWORD dwDstWidth, DWORD dwDstHeight, tr1::shared_ptr<BackgroundImage>& bkImage);
+		static void TileTemplateImage(const CDC& dcTemplate, int nOffsetX, int nOffsetY, tr1::shared_ptr<BackgroundImage>& bkImage);
 
-		void TintImage(const CDC& dc, shared_ptr<BackgroundImage>& bkImage);
+		void TintImage(const CDC& dc, tr1::shared_ptr<BackgroundImage>& bkImage);
 
 		// called by the ::EnumDisplayMonitors to create background for each display
 		static BOOL CALLBACK MonitorEnumProc(HMONITOR /*hMonitor*/, HDC /*hdcMonitor*/, LPRECT lprcMonitor, LPARAM lpData);

@@ -59,12 +59,12 @@ class PageSettingsTabs2
 		void UpdateSliderText();
 		void EnableControls();
 
-		void Load(shared_ptr<TabData>& tabData);
+		void Load(tr1::shared_ptr<TabData>& tabData);
 		void Save();
 
 	private:
 
-		shared_ptr<TabData>	m_tabData;
+		tr1::shared_ptr<TabData>	m_tabData;
 
 		CComboBox		m_comboBkPosition;
 		CTrackBarCtrl	m_sliderTintOpacity;

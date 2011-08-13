@@ -20,7 +20,7 @@
 class ConsoleView;
 
 
-typedef map<HWND, shared_ptr<ConsoleView> >	ConsoleViewMap;
+typedef map<HWND, tr1::shared_ptr<ConsoleView> >	ConsoleViewMap;
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -190,7 +190,7 @@ class MainFrame
 
 	public:
 
-//		shared_ptr<ConsoleView> GetActiveView();
+//		tr1::shared_ptr<ConsoleView> GetActiveView();
 
 		void AdjustWindowRect(CRect& rect);
 //		void AdjustAndResizeConsoleView(CRect& rectView);
@@ -201,7 +201,7 @@ class MainFrame
 		void CloseTab(CTabViewTabItem* pTabItem);
 		void CloseTab(HWND hwndConsoleView);
 
-		void UpdateTabTitle(const shared_ptr<ConsoleView>& consoleView, CString& strTabTitle);
+		void UpdateTabTitle(const tr1::shared_ptr<ConsoleView>& consoleView, CString& strTabTitle);
 		void UpdateTabsMenu(CMenuHandle mainMenu, CMenu& tabsMenu);
 		void UpdateStatusBar();
 		void SetWindowStyles();
@@ -235,7 +235,7 @@ class MainFrame
 		int						m_nMultiStartSleep;
 		wstring					m_strDbgCmdLine;
 
-		shared_ptr<ConsoleView>	m_activeView;
+		tr1::shared_ptr<ConsoleView>	m_activeView;
 
 		BOOL			m_bMenuVisible;
 		BOOL			m_bToolbarVisible;
@@ -274,7 +274,7 @@ class MainFrame
 		CDC				m_dcOffscreen;
 		CDC				m_dcText;
 
-		shared_ptr<AnimationWindow>	m_animationWindow;
+		tr1::shared_ptr<AnimationWindow>	m_animationWindow;
 
 };
 

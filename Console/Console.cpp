@@ -23,8 +23,8 @@
 
 CAppModule					_Module;
 
-shared_ptr<SettingsHandler>	g_settingsHandler;
-shared_ptr<ImageHandler>	g_imageHandler;
+tr1::shared_ptr<SettingsHandler>	g_settingsHandler;
+tr1::shared_ptr<ImageHandler>	g_imageHandler;
 
 //////////////////////////////////////////////////////////////////////////////
 
